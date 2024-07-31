@@ -3,10 +3,10 @@ import { MaterialIcons, Foundation } from '@expo/vector-icons'
 
 export default function PlantsList({ budget, planted, onPress }){
   const Data = [
-    { title: 'plant_1', cost: 0, img: require('../assets/plant_1.png') },
-    { title: 'plant_2', cost: 10, img: require('../assets/plant_2.png') },
-    { title: 'plant_3', cost: 35, img: require('../assets/plant_3.png') },
-    { title: 'plant_4', cost: 100, img: require('../assets/plant_4.png') },
+    { title: 'plant_1', cost: 0, img: require('../assets/plant_1.png'), imgUrl: '../assets/plant_1.png' },
+    { title: 'plant_2', cost: 10, img: require('../assets/plant_2.png'), imgUrl: '../assets/plant_2.png' },
+    { title: 'plant_3', cost: 35, img: require('../assets/plant_3.png'), imgUrl: '../assets/plant_3.png' },
+    { title: 'plant_4', cost: 100, img: require('../assets/plant_4.png'), imgUrl: '../assets/plant_4.png' },
   ]
 
   return (
@@ -21,7 +21,7 @@ export default function PlantsList({ budget, planted, onPress }){
           </View>
           <View style={ styles.pressableContainer }>
             { budget >= item.cost && !planted ? (
-              <Pressable style={[styles.pressable, { backgroundColor: "#fcc93a" }]} onPress={ (e)=> onPress(item.img, item.cost) } > 
+              <Pressable style={[styles.pressable, { backgroundColor: "#fcc93a" }]} onPress={ (e)=> onPress(item.img, item.cost, item.imgUrl) } > 
                 <MaterialIcons
                   name="shopping-bag"
                   size={ 20 }

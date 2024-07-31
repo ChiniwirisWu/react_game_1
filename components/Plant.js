@@ -1,15 +1,24 @@
 import { Image, View, Pressable, StyleSheet, Text } from "react-native";
 
-export default function Plant({ image, planted }){
+export default function Plant({ image, planted, onPress }){
   return(
+
     <View style={ styles.container }>
-      <Pressable style={ styles.imageContainer }>
-        <Image source={ image } style={ styles.image } />
-      </Pressable>
+
       { planted ? (
+        <>
+          <Pressable style={ styles.imageContainer } onPress={ onPress }>
+          <Image source={ image } style={ styles.image } />
+        </Pressable>
         <Text style={ styles.text }>Click to play</Text>
+        </>
       ) : (
+        <>
+        <Pressable style={ styles.imageContainer }>
+          <Image source={ image } style={ styles.image } />
+        </Pressable>
         <Text style={ styles.text }>Get a plant at store</Text>
+        </>
       ) }
       
     </View>
