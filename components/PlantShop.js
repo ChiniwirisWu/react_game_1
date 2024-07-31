@@ -1,12 +1,16 @@
 import { Modal, View, StyleSheet, Pressable, Text } from "react-native"
 import { MaterialIcons }  from "@expo/vector-icons"
 
-export default function PlantShop({ isShopVisible, budget, onClose }){
+export default function PlantShop({ isShopVisible, budget, onClose, children, planted }){
   return (
     <Modal animationType="slide" transparent={ true } visible={ isShopVisible }>
       <View style={ styles.modalContainer }>
         <View style={ styles.titleContainer }>
-          <Text style={ {color: '#ddd', fontSize: 18} }>Choose a plant below</Text>
+          { planted ? (
+            <Text style={ styles.title }>Plant already cultivating...</Text>
+          ) : (
+            <Text style={ styles.title }>Choose a plant below...</Text>
+          ) }
           <Pressable onPress={ onClose }>
             <MaterialIcons 
               name="close"
@@ -15,6 +19,7 @@ export default function PlantShop({ isShopVisible, budget, onClose }){
             />
           </Pressable>
         </View>
+        { children }
       </View>
     </Modal>
   )
@@ -23,7 +28,7 @@ export default function PlantShop({ isShopVisible, budget, onClose }){
 const styles = StyleSheet.create({
   modalContainer:{
     width: "90%",
-    backgroundColor: "#201d42",
+    backgroundColor: "#a18433",
     height: "90%",
     borderRadius: 15,
     margin: 'auto',
@@ -32,6 +37,13 @@ const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  title: {
+    textShadowColor: '#000',
+    textShadowRadius: 2,
+    textShadowOffset: { width: 1, height: 1 },
+    color: '#ddd', 
+    fontSize: 18
   }
 })
 

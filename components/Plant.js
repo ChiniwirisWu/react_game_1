@@ -7,7 +7,7 @@ export default function Plant({ image, planted }){
         <Image source={ image } style={ styles.image } />
       </Pressable>
       { planted ? (
-        <Text style={ styles.text }>Click to collect</Text>
+        <Text style={ styles.text }>Click to play</Text>
       ) : (
         <Text style={ styles.text }>Get a plant at store</Text>
       ) }
